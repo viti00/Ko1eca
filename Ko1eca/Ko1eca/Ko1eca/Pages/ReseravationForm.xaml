@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ko1eca.ReseravationForm"
+             BackgroundColor="#343434">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout x:Name="stackLayout" VerticalOptions="CenterAndExpand" Padding="20" Spacing="20">
+                <Label x:Name="DateNameEntry" HorizontalTextAlignment="Center" TextColor="White" FontSize="32"></Label>
+                <Label x:Name="TimeRangeLabel"  HorizontalTextAlignment="Center" TextColor="White" FontSize="32"></Label>
+
+                <Entry x:Name="RangeIdEntry" IsVisible="false"></Entry>
+                <Frame CornerRadius="15" BorderColor="Black" Padding="5">
+                    <Entry x:Name="EntryClientName"  HorizontalTextAlignment="Center" Placeholder="Име" TextColor="Black" BackgroundColor="White" />
+                </Frame>
+                <Frame CornerRadius="15" BorderColor="Black" Padding="5">
+                    <Entry x:Name="EntryClientPhone"  HorizontalTextAlignment="Center" Placeholder="Номер" TextColor="Black" BackgroundColor="White" />
+                </Frame>
+                
+                <Button x:Name="EditButton" Text="Запази час" Clicked="OnSaveAppointmentClicked"  BackgroundColor="Green" TextColor="Black" />
+            </StackLayout>
+           
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

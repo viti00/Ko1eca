@@ -1,0 +1,36 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ko1eca.MainPage"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="#343434">
+
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Image Source="@drawable/background.png" Margin="30,0" VerticalOptions="CenterAndExpand" Aspect="AspectFill" Opacity="0.7"/>
+
+            <ScrollView>
+                <StackLayout x:Name="stackLay" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" 
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" Margin="0,400,0,0">
+                    <DatePicker x:Name="picker" Format="dd/MM/yyyy" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White">
+
+                    </DatePicker>
+
+                    <SearchBar x:Name="searchBar" Margin="30,0" Placeholder="Търсене на клиент"
+                            CancelButtonColor="White"
+                            PlaceholderColor="White"
+                            TextColor="White"
+                            HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                            FontSize="Medium"
+                            BackgroundColor="Black"
+                            FontAttributes="Italic" 
+                           TextChanged="OnTextChanged"
+                           VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <ListView x:Name="searchResults" HeightRequest="360" WidthRequest="200" Margin="30,0"  Opacity="0.8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></ListView>
+                </StackLayout>
+            </ScrollView>
+            
+        </RelativeLayout>
+    </ContentPage.Content>
+
+</ContentPage>

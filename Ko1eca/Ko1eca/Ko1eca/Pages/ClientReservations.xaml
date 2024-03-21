@@ -1,0 +1,41 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Ko1eca"
+             mc:Ignorable="d"
+             x:Class="Ko1eca.ClientReservations"
+             BackgroundColor="#343434">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Frame BackgroundColor="Yellow"
+                                           CornerRadius="20"
+                                           BorderColor="black"
+                                           Margin="20,5"
+                                           HeightRequest="90">
+                                        <StackLayout VerticalOptions="CenterAndExpand">
+                                            <Label Text="{Binding DateName}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"></Label>
+                                            <Label Text="{Binding TimeRangeName}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"/>
+                                            <Label Text="{Binding FullName}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"/>
+                                        </StackLayout>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnFrameTapped" NumberOfTapsRequired="1" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

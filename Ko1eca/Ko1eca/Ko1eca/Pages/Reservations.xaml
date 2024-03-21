@@ -1,0 +1,53 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Ko1eca"
+             mc:Ignorable="d"
+             x:Class="Ko1eca.Reservations"
+             BackgroundColor="#343434">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StatusToColorConverter x:Key="StatusToColorConverter" />
+            <local:StringToBooleanConverter x:Key="StringToBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label HorizontalTextAlignment="Center" TextColor="White" FontSize="30" x:Name="dateNameLabel"></Label>
+            <Button x:Name="add" Clicked="OnAddClicked"  BackgroundColor="Green" TextColor="Black" CornerRadius="20" HorizontalOptions="Center" Text="Добави час"></Button>
+            <ListView ItemsSource="{Binding}" HasUnevenRows="True">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" Padding="0,2">
+                                    <Frame BackgroundColor="{Binding Status, Converter={StaticResource StatusToColorConverter}}"
+                                           CornerRadius="20"
+                                           BorderColor="black"
+                                           Margin="20,20,0,-6"
+                                           HeightRequest="90"
+                                           WidthRequest="300">
+                                            <StackLayout VerticalOptions="CenterAndExpand">
+                                                <Label Text="{Binding TimeRangeName}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"/>
+                                                <Label Text="{Binding FullName}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20"/>
+                                                <Label x:Name="phone" Text="{Binding PhoneNumber}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20"/>
+                                            </StackLayout>
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnFrameTapped" NumberOfTapsRequired="1" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+                                    <ImageButton ClassId="{Binding PhoneNumber}" IsVisible="{Binding PhoneNumber, Converter={StaticResource StringToBooleanConverter}}" Clicked="OnPhoneClick" CornerRadius="15" BackgroundColor="#34FF34" WidthRequest="50" HorizontalOptions="End" Margin="20,20,10,0" Source="@drawable/phone.png"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
